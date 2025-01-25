@@ -11,6 +11,8 @@ import Homepage from "./pages/Homepage";
 import About from "./pages/About";
 import PageNotFound from "./pages/PageNotFound";
 import Nav from "./components/Nav";
+import Careers from "./pages/Careers";
+import Product from "./pages/Product";
 
 function App() {
   const person = {
@@ -20,10 +22,13 @@ function App() {
   };
   return (
     <BrowserRouter>
-    <Nav />
+      <Nav />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<About />}>
+          <Route path="careers" element={<Careers />} />
+        </Route>
+        <Route path="/product/:id/:slug" element={<Product />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
